@@ -1,0 +1,9 @@
+.section {
+    height: 70px;
+    width: 100%;
+    background-color: blue;
+
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}
