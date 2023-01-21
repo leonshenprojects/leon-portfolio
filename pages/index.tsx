@@ -41,6 +41,7 @@ export default function Home() {
 				<title>Use Stitches with Next.js</title>
 			</Head>
 			<Text as="h1">Hello, from Stitches.</Text>
+			<Text as="h2">Hello Leon.</Text>
 			<Text>
 				For full documentation, visit{' '}
 				<Link href="https://stitches.dev">stitches.dev</Link>.

@@ -203,8 +203,8 @@ export const {
 			shadowDark: 'hsl(206 22% 7% / 20%)',
 		},
 		fonts: {
-			untitled: 'Untitled Sans, -apple-system, system-ui, sans-serif',
-			mono: 'Söhne Mono, menlo, monospace',
+			heading: 'Montserrat, sans-serif',
+			body: 'Open Sans, sans-serif',
 		},
 		space: {
 			1: '0.5rem',
@@ -290,34 +290,11 @@ export const globalStyles = globalCss({
 	body: {
 		margin: 0,
 		fontSize: '1.6rem',
-		// fontFamily: '$meta',
+		fontFamily: '$body',
 	},
-	// "@font-face": [
-	//   {
-	//     fontFamily: "Postoni",
-	//     fontWeight: 700,
-	//     fontDisplay: "fallback",
-	//     src: "url(https://www.washingtonpost.com/wp-stat/assets/fonts/PostoniWide-Bold.woff2)",
-	//   },
-	//   {
-	//     fontFamily: "Postoni",
-	//     fontWeight: 300,
-	//     fontDisplay: "fallback",
-	//     src: "url(https://www.washingtonpost.com/wp-stat/assets/fonts/PostoniWide-Regular.woff2)",
-	//   },
-	//   {
-	//     fontFamily: "Franklin",
-	//     fontWeight: 700,
-	//     fontDisplay: "fallback",
-	//     src: "url(https://www.washingtonpost.com/wp-stat/assets/fonts/ITC_Franklin-Bold.woff2)",
-	//   },
-	//   {
-	//     fontFamily: "Franklin",
-	//     fontWeight: 300,
-	//     fontDisplay: "fallback",
-	//     src: "url(https://www.washingtonpost.com/wp-stat/assets/fonts/ITC_Franklin-Light.woff2)",
-	//   },
-	// ],
+	'h1, h2, h3': {
+		fontFamily: '$heading',
+	},
 });
 
 export type CSS = Stitches.CSS<typeof config>;

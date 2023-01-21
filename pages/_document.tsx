@@ -10,6 +10,10 @@ export default function MyDocument() {
 					id="stitches"
 					dangerouslySetInnerHTML={{ __html: getCssText() }}
 				/>
+				<link
+					href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap"
+					rel="stylesheet"
+				></link>
 			</Head>
 			<body>
 				<Main />
