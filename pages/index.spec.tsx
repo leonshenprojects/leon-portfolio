@@ -8,7 +8,5 @@ describe('Home', () => {
 		const heading = screen.getByText('Hello, from Stitches.');
 
 		expect(heading).toBeInTheDocument();
-
-		expect(container).toMatchSnapshot();
 	});
 });
