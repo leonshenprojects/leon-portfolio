@@ -289,6 +289,7 @@ export const globalStyles = globalCss({
 	},
 	body: {
 		margin: 0,
+		fontSize: '1.6rem',
 		// fontFamily: '$meta',
 	},
 	// "@font-face": [
