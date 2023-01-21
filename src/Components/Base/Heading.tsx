@@ -1,6 +1,6 @@
 import { styled } from '../../../stitches.config';
 
-export const Text = styled('p', {
+export const Heading = styled('h1', {
 	variants: {
 		margin: {
 			none: {
@@ -8,11 +8,11 @@ export const Text = styled('p', {
 			},
 		},
 		weight: {
-			normal: {
-				fontWeight: '400',
+			medium: {
+				fontWeight: '500',
 			},
 			bold: {
-				fontWeight: '600',
+				fontWeight: '700',
 			},
 		},
 		style: {
@@ -25,31 +25,31 @@ export const Text = styled('p', {
 		},
 		size: {
 			xs: {
-				fontSize: '1.2rem',
-				lineHeight: '1.8rem',
+				fontSize: '2.4rem',
+				lineHeight: '2.8rem',
 			},
 			sm: {
-				fontSize: '1.4rem',
-				lineHeight: '2rem',
+				fontSize: '2.8rem',
+				lineHeight: '3.4rem',
 			},
 			md: {
-				fontSize: '1.6rem',
-				lineHeight: '2.2rem',
+				fontSize: '3rem',
+				lineHeight: '3.6rem',
 			},
 			lg: {
-				fontSize: '1.8rem',
-				lineHeight: '2.4rem',
+				fontSize: '3.5rem',
+				lineHeight: '4.2rem',
 			},
 			xl: {
-				fontSize: '2rem',
-				lineHeight: '2.6rem',
+				fontSize: '4rem',
+				lineHeight: '4.8rem',
 			},
 		},
 	},
 
 	defaultVariants: {
-		weight: 'normal',
+		weight: 'bold',
 		style: 'normal',
-		size: 'md',
+		size: 'xl',
 	},
 });
