@@ -221,6 +221,7 @@ export const {
 			4: '2rem',
 			5: '2.5rem',
 			6: '3.5rem',
+			maxRestrict: '1024px',
 		},
 		fontSizes: {
 			1: '1.2rem',
@@ -282,15 +283,16 @@ export const globalStyles = globalCss({
 		boxSizing: 'border-box',
 	},
 	html: {
-		overflowX: 'hidden',
 		'-webkit-font-smoothing': 'antialiased',
 		textRendering: 'optimizeLegibility',
 		fontSize: '62.5%',
 	},
 	body: {
+		minHeight: '100vh',
 		margin: 0,
 		fontSize: '1.6rem',
 		fontFamily: '$body',
+		backgroundColor: '$red10',
 	},
 	'h1, h2, h3': {
 		fontFamily: '$heading',

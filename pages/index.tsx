@@ -4,6 +4,7 @@ import { darkTheme, styled } from '../stitches.config';
 import { Text } from '../src/Components/Base/Text.styled';
 import { Box } from '../src/Components/Base/Box.styled';
 import { Heading } from '../src/Components/Base/Heading';
+import { Row } from '../src/Components/Base/Row';
 
 const Main = styled('main', {
 	display: 'flex',
@@ -43,59 +44,79 @@ export default function Home() {
 			</Head>
 			<Text as="h1">Hello, from Stitches.</Text>
 
-			<Box css={{ width: '50rem' }}>
-				<Heading size={'xs'}>
-					This is some gibberish for testing the text styled component. I hope
-					that it will fill more than two lines.
-				</Heading>
+			<Row>
+				<Box css={{ width: '50rem' }}>
+					<Heading size={'xs'}>
+						This is some gibberish for testing the text styled component. I hope
+						that it will fill more than two lines.
+					</Heading>
 
-				<Text size={'xs'}>
-					This is some gibberish for testing the text styled component. I hope
-					that it will fill more than two lines.
-				</Text>
+					<Text size={'xs'}>
+						This is some gibberish for testing the text styled component. I hope
+						that it will fill more than two lines.
+					</Text>
+				</Box>
+			</Row>
 
-				<Heading size={'sm'}>
-					This is some gibberish for testing the text styled component. I hope
-					that it will fill more than two lines.
-				</Heading>
+			<Row width="full">
+				<Box css={{ width: '50rem' }}>
+					<Heading size={'sm'}>
+						This is some gibberish for testing the text styled component. I hope
+						that it will fill more than two lines.
+					</Heading>
 
-				<Text size={'sm'}>
-					This is some gibberish for testing the text styled component. I hope
-					that it will fill more than two lines.
-				</Text>
+					<Text size={'sm'}>
+						This is some gibberish for testing the text styled component. I hope
+						that it will fill more than two lines.
+					</Text>
+				</Box>
+			</Row>
 
-				<Heading size={'md'}>
-					This is some gibberish for testing the text styled component. I hope
-					that it will fill more than two lines.
-				</Heading>
+			<Row>
+				<Box css={{ width: '50rem' }}>
+					<Heading size={'md'}>
+						This is some gibberish for testing the text styled component. I hope
+						that it will fill more than two lines.
+					</Heading>
 
-				<Text size={'md'}>
-					This is some gibberish for testing the text styled component. I hope
-					that it will fill more than two lines.
-				</Text>
+					<Text size={'md'}>
+						This is some gibberish for testing the text styled component. I hope
+						that it will fill more than two lines.
+					</Text>
+				</Box>
+			</Row>
 
-				<Heading size={'lg'}>
-					This is some gibberish for testing the text styled component. I hope
-					that it will fill more than two lines.
-				</Heading>
+			<Row>
+				<Box css={{ width: '50rem' }}>
+					<Heading size={'lg'}>
+						This is some gibberish for testing the text styled component. I hope
+						that it will fill more than two lines.
+					</Heading>
 
-				<Text size={'lg'}>
-					This is some gibberish for testing the text styled component. I hope
-					that it will fill more than two lines.
-				</Text>
+					<Text size={'lg'}>
+						This is some gibberish for testing the text styled component. I hope
+						that it will fill more than two lines.
+					</Text>
+				</Box>
+			</Row>
 
-				<Heading size={'xl'}>
-					This is some gibberish for testing the text styled component. I hope
-					that it will fill more than two lines.
-				</Heading>
+			<Row>
+				<Box css={{ width: '50rem' }}>
+					<Heading size={'xl'}>
+						This is some gibberish for testing the text styled component. I hope
+						that it will fill more than two lines.
+					</Heading>
 
-				<Text size={'xl'}>
-					This is some gibberish for testing the text styled component. I hope
-					that it will fill more than two lines.
-				</Text>
-			</Box>
+					<Text size={'xl'}>
+						This is some gibberish for testing the text styled component. I hope
+						that it will fill more than two lines.
+					</Text>
+				</Box>
+			</Row>
 
-			<Button onClick={toggleTheme}>Switch to {inActiveTheme}</Button>
+			<Row>
+				<Button onClick={toggleTheme}>Switch to {inActiveTheme}</Button>
+			</Row>
 		</Main>
 	);
 }
