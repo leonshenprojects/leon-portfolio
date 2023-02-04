@@ -40,4 +40,5 @@ export const Label = styled('label', {
 	fontSize: '1.5rem',
 	lineHeight: '1',
 	paddingRight: '1.5rem',
+	color: '$body',
 });
