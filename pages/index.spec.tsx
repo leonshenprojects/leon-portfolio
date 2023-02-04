@@ -3,7 +3,7 @@ import Home from './index';
 
 describe('Home', () => {
 	it('renders a heading', () => {
-		const { container } = render(<Home />);
+		render(<Home />);
 
 		const heading = screen.getByText('Hello, from Stitches.');
 
