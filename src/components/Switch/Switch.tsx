@@ -1,4 +1,4 @@
-import { Flex } from '../Bbase/Flex.styled';
+import { Flex } from '../base/Flex.styled';
 import { Label, SwitchRoot, SwitchThumb } from './Switch.styled';
 import { useState, useId, useEffect } from 'react';
 import { SwitchProps as RadixSwitchProps } from '@radix-ui/react-switch';
