@@ -1,11 +1,12 @@
 import { ColorModeContext } from '../../context/colorMode/colorModeContext';
 import { ColorMode } from '../../context/colorMode/useColorMode';
-import { Flex } from '../Base/Flex.styled';
+import { Flex } from '../base/Flex.styled';
 import { Switch } from '../Switch/Switch';
+import { Container } from './TopBar.styled';
 
 export const TopBar = () => {
 	return (
-		<Flex alignItems="end" alignContent="center" justifyContent="end">
+		<Container alignItems="end" alignContent="center" justifyContent="end">
 			<ColorModeContext.Consumer>
 				{(context) => {
 					const toggleTheme = (checked: boolean) => {
@@ -32,6 +33,6 @@ export const TopBar = () => {
 					);
 				}}
 			</ColorModeContext.Consumer>
-		</Flex>
+		</Container>
 	);
 };

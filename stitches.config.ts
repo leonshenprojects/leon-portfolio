@@ -138,6 +138,7 @@ export const darkTheme = createTheme('dark-theme', {
 		...amberDark,
 
 		// Semantic colors
+		background: '$slate2',
 		canvas: 'hsl(0 0% 15%)',
 		transparentPanel: 'hsl(0 100% 100% / 97%)',
 		shadowLight: 'hsl(206 22% 7% / 35%)',
@@ -158,11 +159,12 @@ export const globalStyles = globalCss({
 		fontSize: '62.5%',
 	},
 	body: {
-		minHeight: '100vh',
 		margin: 0,
 		fontSize: '1.6rem',
 		fontFamily: '$body',
-		backgroundColor: '$slate2',
+	},
+	'body, #__next, main': {
+		minHeight: '100vh',
 	},
 	'h1, h2, h3': {
 		fontFamily: '$heading',
