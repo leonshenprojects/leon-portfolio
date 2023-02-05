@@ -1,6 +1,6 @@
 import { ColorModeContext } from '../../context/colorMode/colorModeContext';
 import { ColorMode } from '../../context/colorMode/useColorMode';
-import { Flex } from '../base/Flex.styled';
+import { Flex } from '../Bbase/Flex.styled';
 import { Switch } from '../Switch/Switch';
 import { Container } from './TopBar.styled';
 

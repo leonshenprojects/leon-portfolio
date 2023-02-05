@@ -1,14 +1,14 @@
 import Head from 'next/head';
-import { Heading } from '../src/components/base/Heading.styled';
-import { Row } from '../src/components/base/Row.styled';
-import { TopBar } from '../src/components/TopBar/TopBar';
+import { Heading } from '../src/Ccomponents/Bbase/Heading.styled';
+import { Row } from '../src/Ccomponents/Bbase/Row.styled';
+import { TopBar } from '../src/Ccomponents/TopBar/TopBar';
 import {
 	ResumeContainer,
 	ResumeInfo,
 	ResumeMain,
-} from '../src/components/resume/Resume.styled';
+} from '../src/Ccomponents/resume/Resume.styled';
 import ColorModeProvider from '../src/context/colorMode/colorModeContext';
-import { Main } from '../src/components/base/Main.styled';
+import { Main } from '../src/Ccomponents/Bbase/Main.styled';
 
 export default function Home() {
 	return (
