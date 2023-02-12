@@ -9,8 +9,18 @@ import {
 } from '../src/components/resume/Resume.styled';
 import ColorModeProvider from '../src/context/colorMode/colorModeContext';
 import { Main } from '../src/components/base/Main.styled';
+import { GetStaticProps } from 'next';
+import { AppProps } from 'next/app';
+import { cmsBaseUrl } from '../lib/constants';
+import { NexusGenFieldTypes } from '../types/cmsTypes';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { RESUME_QUERY } from '../queries/resumeQuery';
 
-export default function Home() {
+export interface ResumePageProps {
+	data: NexusGenFieldTypes['Resume'];
+}
+
+export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 	return (
 		<ColorModeProvider>
 			<Main>
@@ -39,3 +49,16 @@ export default function Home() {
 		</ColorModeProvider>
 	);
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+	const client = new ApolloClient({
+		uri: `${cmsBaseUrl}/graphql`,
+		cache: new InMemoryCache(),
+	});
+
+	const { data } = await client.query({
+		query: RESUME_QUERY,
+	});
+
+	return { props: { pageProps: { data: data.resume.data.attributes } } };
+};
