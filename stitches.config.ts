@@ -169,4 +169,11 @@ export const globalStyles = globalCss({
 	'h1, h2, h3': {
 		fontFamily: '$heading',
 	},
+	a: {
+		color: 'inherit',
+
+		'&:-webkit-any-link': {
+			color: 'inherit',
+		},
+	},
 });

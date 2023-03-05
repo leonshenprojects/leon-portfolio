@@ -18,13 +18,24 @@ import { Avatar } from '../src/components/Avatar/Avatar';
 import { Resume } from '../types/cmsTypes';
 import { Separator } from '../src/components/Separator/Separator';
 import { Text } from '../src/components/base/Text.styled';
+import { Grid } from '../src/components/base/Grid.styled';
+import { Link } from '../src/components/base/Link.styled';
 
 export interface ResumePageProps {
 	data: Resume;
 }
 
 export default function Home({ pageProps }: AppProps<ResumePageProps>) {
-	const { firstName, lastName, profilePicture, profession } = pageProps.data;
+	const {
+		firstName,
+		lastName,
+		profilePicture,
+		profession,
+		address,
+		mobile,
+		email,
+		linkedInUrl,
+	} = pageProps.data;
 
 	return (
 		<ColorModeProvider>
@@ -39,17 +50,66 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 				<Row>
 					<ResumeContainer>
 						<ResumeInfo>
-							{profilePicture?.data?.attributes?.url && (
-								<Avatar
-									url={`https://leon-personal.herokuapp.com${profilePicture?.data?.attributes?.url}`}
-									firstName={firstName}
-									lastName={lastName}
-									containerStyles={{ marginTop: '$6' }}
-								/>
-							)}
-							<Heading size={'md'}>{`${firstName} ${lastName}`}</Heading>
-							<Separator styles={{ width: '4rem' }} />
-							<Text>{profession}</Text>
+							<Grid css={{ placeItems: 'center' }}>
+								{profilePicture?.data?.attributes?.url && (
+									<Avatar
+										url={`https://leon-personal.herokuapp.com${profilePicture?.data?.attributes?.url}`}
+										firstName={firstName}
+										lastName={lastName}
+										containerStyles={{ marginTop: '$4' }}
+									/>
+								)}
+								<Heading size={'md'}>{`${firstName} ${lastName}`}</Heading>
+								<Separator styles={{ width: '4rem' }} />
+								<Text>{profession}</Text>
+							</Grid>
+
+							<Grid>
+								<Heading size={'sm'} css={{ marginBottom: '$1' }}>
+									Details
+								</Heading>
+								<Text margin={'none'} size={'sm'}>
+									{address.addressLine1}
+								</Text>
+								{address.addressLine2 && (
+									<Text margin={'none'} size={'sm'}>
+										{address.addressLine2}
+									</Text>
+								)}
+								<Text
+									margin={'none'}
+									size={'sm'}
+									css={{ marginBottom: '$1' }}
+								>{`${address.postCode} ${address.city}`}</Text>
+
+								<Text
+									margin={'none'}
+									style={'emphasis'}
+									size={'sm'}
+									css={{ marginBottom: '$1' }}
+								>
+									<Link
+										href={`tel:+${mobile.countryCode}${mobile.areaCode}${mobile.number}`}
+									>{`(${mobile.countryCode}) ${mobile.areaCode} ${mobile.number}`}</Link>
+								</Text>
+
+								<Text
+									margin={'none'}
+									style={'emphasis'}
+									size={'sm'}
+									css={{ marginBottom: '$1' }}
+								>
+									<Link href={`mailto:${email}`} target="_blank">
+										{email}
+									</Link>
+								</Text>
+
+								<Text margin={'none'} style={'emphasis'} size={'sm'}>
+									<Link href={linkedInUrl} target="_blank">
+										{linkedInUrl}
+									</Link>
+								</Text>
+							</Grid>
 						</ResumeInfo>
 
 						<ResumeMain>

@@ -8,6 +8,9 @@ export const Text = styled('p', {
 			none: {
 				margin: '0',
 			},
+			paragraph: {
+				marginBottom: '$4',
+			},
 		},
 		weight: {
 			normal: {
@@ -53,5 +56,6 @@ export const Text = styled('p', {
 		weight: 'normal',
 		style: 'normal',
 		size: 'md',
+		margin: 'paragraph',
 	},
 });

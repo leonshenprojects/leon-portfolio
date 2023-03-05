@@ -13,10 +13,9 @@ export const ResumeContainer = styled('div', {
 });
 
 export const ResumeInfo = styled('div', {
-	display: 'grid',
-	placeItems: 'center',
 	gridArea: 'info',
 	backgroundColor: '$cyan2',
+	padding: '$2 $5',
 });
 
 export const ResumeMain = styled('div', {
