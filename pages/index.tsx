@@ -20,6 +20,7 @@ import { Separator } from '../src/components/Separator/Separator';
 import { Text } from '../src/components/base/Text.styled';
 import { Grid } from '../src/components/base/Grid.styled';
 import { Link } from '../src/components/base/Link.styled';
+import { SkillsList } from '../src/components/resume/SkillsList/SkillsList';
 
 export interface ResumePageProps {
 	data: Resume;
@@ -35,6 +36,7 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 		mobile,
 		email,
 		linkedInUrl,
+		Skills,
 	} = pageProps.data;
 
 	return (
@@ -64,7 +66,7 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 								<Text>{profession}</Text>
 							</Grid>
 
-							<Grid>
+							<Grid css={{ marginTop: '$2' }}>
 								<Heading size={'sm'} css={{ marginBottom: '$1' }}>
 									Details
 								</Heading>
@@ -110,6 +112,16 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 									</Link>
 								</Text>
 							</Grid>
+
+							{Skills && (
+								<Grid css={{ marginTop: '$6' }}>
+									<Heading size={'sm'} css={{ marginBottom: '$1' }}>
+										Tech Stack
+									</Heading>
+
+									<SkillsList skills={Skills} />
+								</Grid>
+							)}
 						</ResumeInfo>
 
 						<ResumeMain>

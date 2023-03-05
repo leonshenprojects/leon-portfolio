@@ -162,18 +162,12 @@ export const globalStyles = globalCss({
 		margin: 0,
 		fontSize: '1.6rem',
 		fontFamily: '$body',
+		color: '$body',
 	},
 	'body, #__next, main': {
 		minHeight: '100vh',
 	},
 	'h1, h2, h3': {
 		fontFamily: '$heading',
-	},
-	a: {
-		color: 'inherit',
-
-		'&:-webkit-any-link': {
-			color: 'inherit',
-		},
 	},
 });
