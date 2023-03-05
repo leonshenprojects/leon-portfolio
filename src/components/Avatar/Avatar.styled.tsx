@@ -3,8 +3,8 @@ import { styled } from '../../../stitches.config';
 
 export const AvatarRoot = styled(Avatar.Root, {
 	display: 'block',
-	width: '4.5rem',
-	height: '4.5rem',
+	width: '6rem',
+	height: '6rem',
 	aspectRatio: '1/1',
 	borderRadius: '$round',
 	backgroundColor: '$blackA9',

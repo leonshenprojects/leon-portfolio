@@ -1,14 +1,21 @@
+import { CSS } from '@stitches/react';
 import { AvatarFallback, AvatarImage, AvatarRoot } from './Avatar.styled';
 
 export interface AvatarProps {
 	url: string;
 	firstName: string;
 	lastName: string;
+	containerStyles?: CSS;
 }
 
-export const Avatar = ({ url, firstName, lastName }: AvatarProps) => {
+export const Avatar = ({
+	url,
+	firstName,
+	lastName,
+	containerStyles,
+}: AvatarProps) => {
 	return (
-		<AvatarRoot>
+		<AvatarRoot css={containerStyles}>
 			<AvatarImage src={url} alt={getAltText(firstName, lastName)} />
 			<AvatarFallback delayMs={600}>
 				{getInitials(firstName, lastName)}

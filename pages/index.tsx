@@ -16,17 +16,16 @@ import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { RESUME_QUERY } from '../queries/resumeQuery';
 import { Avatar } from '../src/components/Avatar/Avatar';
 import { Resume } from '../types/cmsTypes';
+import { Separator } from '../src/components/Separator/Separator';
+import { Text } from '../src/components/base/Text.styled';
 
 export interface ResumePageProps {
 	data: Resume;
 }
 
 export default function Home({ pageProps }: AppProps<ResumePageProps>) {
-	const { firstName, lastName, profilePicture } = pageProps.data;
+	const { firstName, lastName, profilePicture, profession } = pageProps.data;
 
-	console.log(
-		`https://leon-personal.herokuapp.com${profilePicture?.data?.attributes?.url}`
-	);
 	return (
 		<ColorModeProvider>
 			<Main>
@@ -45,10 +44,12 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 									url={`https://leon-personal.herokuapp.com${profilePicture?.data?.attributes?.url}`}
 									firstName={firstName}
 									lastName={lastName}
+									containerStyles={{ marginTop: '$6' }}
 								/>
 							)}
-							<Heading size={'md'}>Info 1</Heading>
-							<Heading size={'md'}>Info 2</Heading>
+							<Heading size={'md'}>{`${firstName} ${lastName}`}</Heading>
+							<Separator styles={{ width: '4rem' }} />
+							<Text>{profession}</Text>
 						</ResumeInfo>
 
 						<ResumeMain>

@@ -13,6 +13,8 @@ export const ResumeContainer = styled('div', {
 });
 
 export const ResumeInfo = styled('div', {
+	display: 'grid',
+	placeItems: 'center',
 	gridArea: 'info',
 	backgroundColor: '$cyan2',
 });

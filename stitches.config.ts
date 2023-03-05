@@ -40,7 +40,7 @@ export const {
 
 			// Semantic colors
 			hiContrast: '$slate12',
-			loContrast: 'slate11',
+			loContrast: '$slate11',
 			heading: '$cyan12',
 			body: '$cyan11',
 			canvas: 'hsl(0 0% 93%)',
