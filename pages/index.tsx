@@ -12,15 +12,21 @@ import { Main } from '../src/components/base/Main.styled';
 import { GetStaticProps } from 'next';
 import { AppProps } from 'next/app';
 import { cmsBaseUrl } from '../lib/constants';
-import { NexusGenFieldTypes } from '../types/cmsTypes';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { RESUME_QUERY } from '../queries/resumeQuery';
+import { Avatar } from '../src/components/Avatar/Avatar';
+import { Resume } from '../types/cmsTypes';
 
 export interface ResumePageProps {
-	data: NexusGenFieldTypes['Resume'];
+	data: Resume;
 }
 
 export default function Home({ pageProps }: AppProps<ResumePageProps>) {
+	const { firstName, lastName, profilePicture } = pageProps.data;
+
+	console.log(
+		`https://leon-personal.herokuapp.com${profilePicture?.data?.attributes?.url}`
+	);
 	return (
 		<ColorModeProvider>
 			<Main>
@@ -34,6 +40,13 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 				<Row>
 					<ResumeContainer>
 						<ResumeInfo>
+							{profilePicture?.data?.attributes?.url && (
+								<Avatar
+									url={`https://leon-personal.herokuapp.com${profilePicture?.data?.attributes?.url}`}
+									firstName={firstName}
+									lastName={lastName}
+								/>
+							)}
 							<Heading size={'md'}>Info 1</Heading>
 							<Heading size={'md'}>Info 2</Heading>
 						</ResumeInfo>

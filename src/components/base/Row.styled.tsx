@@ -1,8 +1,7 @@
 import { styled } from '../../../stitches.config';
 
 export const Row = styled('div', {
-	width: '100%',
-	padding: '0 $2',
+	width: 'calc(100% - $2)',
 
 	variants: {
 		width: {
@@ -12,11 +11,6 @@ export const Row = styled('div', {
 			restricted: {
 				maxWidth: '$maxRestrict',
 				margin: '0 auto',
-			},
-		},
-		padding: {
-			none: {
-				padding: '0',
 			},
 		},
 	},

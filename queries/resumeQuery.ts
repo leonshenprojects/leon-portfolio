@@ -5,7 +5,8 @@ export const RESUME_QUERY = gql`
 		resume {
 			data {
 				attributes {
-					name
+					firstName
+					lastName
 					profession
 					Summary
 					address {
