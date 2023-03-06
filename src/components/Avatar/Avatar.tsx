@@ -1,4 +1,5 @@
 import { CSS } from '@stitches/react';
+import { Text } from '../base/Text.styled';
 import { AvatarFallback, AvatarImage, AvatarRoot } from './Avatar.styled';
 
 export interface AvatarProps {
@@ -18,7 +19,9 @@ export const Avatar = ({
 		<AvatarRoot css={containerStyles}>
 			<AvatarImage src={url} alt={getAltText(firstName, lastName)} />
 			<AvatarFallback delayMs={600}>
-				{getInitials(firstName, lastName)}
+				<Text margin="none" size="xl">
+					{getInitials(firstName, lastName)}
+				</Text>
 			</AvatarFallback>
 		</AvatarRoot>
 	);

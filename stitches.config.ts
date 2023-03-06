@@ -62,6 +62,10 @@ export const {
 			4: '2rem',
 			5: '2.5rem',
 			6: '3.5rem',
+			7: '4rem',
+			8: '4.5rem',
+			9: '5rem',
+			10: '5.5rem',
 		},
 		sizes: {
 			1: '0.5rem',

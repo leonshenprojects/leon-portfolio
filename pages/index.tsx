@@ -55,10 +55,10 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 							<Grid css={{ placeItems: 'center' }}>
 								{profilePicture?.data?.attributes?.url && (
 									<Avatar
-										url={`https://leon-personal.herokuapp.com${profilePicture?.data?.attributes?.url}`}
+										url={profilePicture?.data?.attributes?.url}
 										firstName={firstName}
 										lastName={lastName}
-										containerStyles={{ marginTop: '$4' }}
+										containerStyles={{ marginBottom: '$4' }}
 									/>
 								)}
 								<Heading size={'md'}>{`${firstName} ${lastName}`}</Heading>
@@ -66,8 +66,8 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 								<Text>{profession}</Text>
 							</Grid>
 
-							<Grid css={{ marginTop: '$2' }}>
-								<Heading size={'sm'} css={{ marginBottom: '$1' }}>
+							<Grid css={{ marginTop: '$4' }}>
+								<Heading size={'sm'} css={{ marginBottom: '$2' }}>
 									Details
 								</Heading>
 								<Text margin={'none'} size={'sm'}>
@@ -114,8 +114,8 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 							</Grid>
 
 							{Skills && (
-								<Grid css={{ marginTop: '$6' }}>
-									<Heading size={'sm'} css={{ marginBottom: '$1' }}>
+								<Grid css={{ marginTop: '$8' }}>
+									<Heading size={'sm'} css={{ marginBottom: '$2' }}>
 										Tech Stack
 									</Heading>
 

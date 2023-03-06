@@ -1,4 +1,5 @@
 import { ComponentResumeSkill, Maybe } from '../../../../types/cmsTypes';
+import { List } from '../../base/List.styled';
 import { Text } from '../../base/Text.styled';
 
 interface SkillsListProps {
@@ -28,23 +29,24 @@ export const SkillsList = ({ skills }: SkillsListProps) => {
 	}, {} as SkillsByCategory);
 
 	return (
-		<ul>
+		<List margin={'none'}>
 			{Object.keys(skillsByCategory).map((category, index) => (
-				<Text as="li" key={`${index} - ${category}`} margin={'none'}>
+				<Text as="li" key={`${index} - ${category}`} margin={'none'} size="sm">
 					{category}
-					<ul>
+					<List margin={'none'}>
 						{skillsByCategory[category].map((skillName, index) => (
 							<Text
 								as="li"
 								key={`${index} - ${category} - ${skillName}`}
-								margin={'none'}
+								margin="none"
+								size="sm"
 							>
 								{skillName}
 							</Text>
 						))}
-					</ul>
+					</List>
 				</Text>
 			))}
-		</ul>
+		</List>
 	);
 };

@@ -15,7 +15,7 @@ export const ResumeContainer = styled('div', {
 export const ResumeInfo = styled('div', {
 	gridArea: 'info',
 	backgroundColor: '$cyan2',
-	padding: '$2 $5',
+	padding: '$10 $6',
 });
 
 export const ResumeMain = styled('div', {

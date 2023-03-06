@@ -3,11 +3,12 @@ import { styled } from '../../../stitches.config';
 
 export const AvatarRoot = styled(Avatar.Root, {
 	display: 'block',
-	width: '6rem',
-	height: '6rem',
+	width: '10rem',
+	height: '10rem',
 	aspectRatio: '1/1',
 	borderRadius: '$round',
 	backgroundColor: '$blackA9',
+	overflow: 'hidden',
 });
 
 export const AvatarImage = styled(Avatar.Image, {
