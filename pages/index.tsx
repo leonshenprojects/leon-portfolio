@@ -21,6 +21,7 @@ import { Text } from '../src/components/base/Text.styled';
 import { Grid } from '../src/components/base/Grid.styled';
 import { Link } from '../src/components/base/Link.styled';
 import { SkillsList } from '../src/components/resume/SkillsList/SkillsList';
+import { InterestsList } from '../src/components/resume/InterestsList';
 
 export interface ResumePageProps {
 	data: Resume;
@@ -37,6 +38,7 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 		email,
 		linkedInUrl,
 		Skills,
+		interests,
 	} = pageProps.data;
 
 	return (
@@ -120,6 +122,16 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 									</Heading>
 
 									<SkillsList skills={Skills} />
+								</Grid>
+							)}
+
+							{interests && (
+								<Grid css={{ marginTop: '$8' }}>
+									<Heading size={'sm'} css={{ marginBottom: '$2' }}>
+										Interests
+									</Heading>
+
+									<InterestsList interests={interests} />
 								</Grid>
 							)}
 						</ResumeInfo>
