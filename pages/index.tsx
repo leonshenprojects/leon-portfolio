@@ -20,7 +20,7 @@ import { Separator } from '../src/components/Separator/Separator';
 import { Text } from '../src/components/base/Text.styled';
 import { Grid } from '../src/components/base/Grid.styled';
 import { Link } from '../src/components/base/Link.styled';
-import { SkillsList } from '../src/components/resume/SkillsList/SkillsList';
+import { SkillsList } from '../src/components/resume/SkillsList';
 import { InterestsList } from '../src/components/resume/InterestsList';
 
 export interface ResumePageProps {

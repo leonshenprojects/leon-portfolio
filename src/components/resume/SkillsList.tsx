@@ -1,6 +1,6 @@
-import { ComponentResumeSkill, Maybe } from '../../../../types/cmsTypes';
-import { List } from '../../base/List.styled';
-import { Text } from '../../base/Text.styled';
+import { ComponentResumeSkill, Maybe } from '../../../types/cmsTypes';
+import { List } from '../base/List.styled';
+import { Text } from '../base/Text.styled';
 
 interface SkillsListProps {
 	skills: Maybe<ComponentResumeSkill>[];
