@@ -47,3 +47,7 @@ Radix colors is used for the color palette.
 | Info       | Cyan   | cyanDark   |
 | Text       | Cyan11 | cyanDark11 |
 | Heading    | Cyan12 | cyanDark12 |
+
+## Image storage
+
+[Cloudinary](https://cloudinary.com/)
