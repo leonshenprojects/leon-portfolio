@@ -49,7 +49,7 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 					<title>Resume</title>
 				</Head>
 
-				<Row>
+				<Row css={{ marginBottom: '$6' }}>
 					<ResumeContainer>
 						<ResumeInfo>
 							<Grid css={{ placeItems: 'center' }}>
