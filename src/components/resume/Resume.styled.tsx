@@ -21,4 +21,5 @@ export const ResumeInfo = styled('div', {
 export const ResumeMain = styled('div', {
 	gridArea: 'main',
 	backgroundColor: '$cyan3',
+	padding: '$10 $6',
 });

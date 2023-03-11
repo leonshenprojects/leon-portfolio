@@ -8,6 +8,9 @@ export const Heading = styled('h1', {
 			none: {
 				margin: '0',
 			},
+			bottomOnly: {
+				marginTop: '0',
+			},
 		},
 		weight: {
 			medium: {

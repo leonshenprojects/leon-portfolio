@@ -39,6 +39,7 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 		linkedInUrl,
 		Skills,
 		interests,
+		Summary,
 	} = pageProps.data;
 
 	return (
@@ -137,7 +138,14 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 						</ResumeInfo>
 
 						<ResumeMain>
-							<Heading size={'md'}>Main 1</Heading>
+							<Row width={'full'} css={{ marginBottom: '$6' }}>
+								<Heading size={'md'} margin={'bottomOnly'}>
+									Summary
+								</Heading>
+
+								<Text>{Summary}</Text>
+							</Row>
+
 							<Heading size={'md'}>Main 2</Heading>
 							<Heading size={'md'}>Main 3</Heading>
 						</ResumeMain>
