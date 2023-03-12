@@ -7,5 +7,11 @@ export const List = styled('ul', {
 				margin: '0',
 			},
 		},
+		type: {
+			noBullets: {
+				listStyle: 'none',
+				padding: '0',
+			},
+		},
 	},
 });
