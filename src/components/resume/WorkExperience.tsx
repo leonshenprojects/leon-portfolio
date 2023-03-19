@@ -1,3 +1,4 @@
+import { getFormattedDateRange } from '../../../lib/dateTime/getFormattedDateRange';
 import { styled } from '../../../stitches.config';
 import { ComponentResumeWorkExperience, Maybe } from '../../../types/cmsTypes';
 import { Heading } from '../base/Heading.styled';
@@ -76,7 +77,9 @@ const getExperienceList = (
 	experienceList: Array<ComponentResumeWorkExperience>
 ) => {
 	if (experienceList.length === 1) {
-		const { description } = experienceList[0];
+		const { description, startDate, endDate } = experienceList[0];
+		const startDateObj = new Date(startDate);
+		const endDateObj = endDate ? new Date(endDate) : undefined;
 
 		return (
 			<>
@@ -84,7 +87,10 @@ const getExperienceList = (
 					{role}
 				</Heading>
 
-				<Text margin={'bottomOnly'}>{`${companyName}, ${city}`}</Text>
+				<Text margin={'none'}>{`${companyName}, ${city}`}</Text>
+				<Text margin={'bottomOnly'}>
+					{getFormattedDateRange(startDateObj, endDateObj, 'MMMM YYYY')}
+				</Text>
 
 				{!!description && <CmsRichText content={description} />}
 			</>
@@ -99,18 +105,29 @@ const getExperienceList = (
 				css={{ marginBottom: '$1' }}
 			>{`${companyName}`}</Heading>
 
-			<Text margin={'none'}>{`${city}`}</Text>
+			<Text margin={'bottomOnly'}>{`${city}`}</Text>
 
 			<List>
 				{experienceList.map((experience, index) => {
-					const { id, role, description } = experience;
+					const { id, role, description, startDate, endDate } = experience;
+					const startDateObj = new Date(startDate);
+					const endDateObj = endDate ? new Date(endDate) : undefined;
 
 					return (
 						<li key={`${index}-${id}`}>
 							<section>
-								<Heading as={'h3'} css={{ fontSize: '$5', lineHeight: '1' }}>
+								<Heading
+									as={'h3'}
+									margin={'none'}
+									css={{ fontSize: '$5', lineHeight: '1' }}
+								>
 									{role}
 								</Heading>
+
+								<Text margin={'bottomOnly'}>
+									{getFormattedDateRange(startDateObj, endDateObj, 'MMMM YYYY')}
+								</Text>
+
 								{!!description && <CmsRichText content={description} />}
 							</section>
 						</li>
