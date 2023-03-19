@@ -12,7 +12,7 @@ interface WorkExperienceProps {
 
 type Company = Omit<
 	ComponentResumeWorkExperience,
-	'startDate' | 'endDate' | 'description'
+	'startDate' | 'endDate' | 'description' | 'role'
 >;
 
 type ExperienceAtCompany = Company & {
@@ -21,6 +21,12 @@ type ExperienceAtCompany = Company & {
 
 const CompanyListItem = styled('li', {
 	marginBottom: '$6',
+});
+
+const ExperienceListItem = styled('li', {
+	'&:not(:last-child)': {
+		marginBottom: '$4',
+	},
 });
 
 export const WorkExperience = ({ workExperience }: WorkExperienceProps) => {
@@ -58,10 +64,10 @@ export const WorkExperience = ({ workExperience }: WorkExperienceProps) => {
 	return (
 		<List type={'noBullets'}>
 			{workExperienceList.map(
-				({ id, companyName, role, city, experience }, index) => {
+				({ id, companyName, city, experience }, index) => {
 					return (
 						<CompanyListItem key={`company-${index}-${id}`}>
-							{getExperienceList(role, companyName, city, experience)}
+							{getExperienceList(companyName, city, experience)}
 						</CompanyListItem>
 					);
 				}
@@ -71,13 +77,12 @@ export const WorkExperience = ({ workExperience }: WorkExperienceProps) => {
 };
 
 const getExperienceList = (
-	role: string,
 	companyName: string,
 	city: string,
 	experienceList: Array<ComponentResumeWorkExperience>
 ) => {
 	if (experienceList.length === 1) {
-		const { description, startDate, endDate } = experienceList[0];
+		const { role, description, startDate, endDate } = experienceList[0];
 		const startDateObj = new Date(startDate);
 		const endDateObj = endDate ? new Date(endDate) : undefined;
 
@@ -114,7 +119,7 @@ const getExperienceList = (
 					const endDateObj = endDate ? new Date(endDate) : undefined;
 
 					return (
-						<li key={`${index}-${id}`}>
+						<ExperienceListItem key={`${index}-${id}`}>
 							<section>
 								<Heading
 									as={'h3'}
@@ -130,7 +135,7 @@ const getExperienceList = (
 
 								{!!description && <CmsRichText content={description} />}
 							</section>
-						</li>
+						</ExperienceListItem>
 					);
 				})}
 			</List>
