@@ -24,6 +24,7 @@ import { SkillsList } from '../src/components/resume/SkillsList';
 import { InterestsList } from '../src/components/resume/InterestsList';
 import { WorkExperience } from '../src/components/resume/WorkExperience';
 import { CmsRichText } from '../src/components/CmsRichText/CmsRichText';
+import { Education } from '../src/components/resume/Education';
 
 export interface ResumePageProps {
 	data: Resume;
@@ -43,6 +44,7 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 		interests,
 		Summary,
 		workExperience,
+		education,
 	} = pageProps.data;
 
 	return (
@@ -153,6 +155,12 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 								<Heading size={'md'}>Work experience</Heading>
 
 								<WorkExperience workExperience={workExperience} />
+							</Row>
+
+							<Row width={'full'} css={{ marginBottom: '$6' }}>
+								<Heading size={'md'}>Education</Heading>
+
+								<Education education={education} />
 							</Row>
 						</ResumeMain>
 					</ResumeContainer>
