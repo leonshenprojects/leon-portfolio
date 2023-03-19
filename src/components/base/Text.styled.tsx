@@ -8,6 +8,9 @@ export const Text = styled('p', {
 			none: {
 				margin: '0',
 			},
+			bottomOnly: {
+				marginTop: '0',
+			},
 			paragraph: {
 				marginBottom: '$4',
 			},

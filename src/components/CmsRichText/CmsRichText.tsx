@@ -29,11 +29,11 @@ export const CmsRichText = ({
 	if (topLevelTagMatches) {
 		return (
 			<>
-				{topLevelTagMatches.map((topLevelTagMatch) => {
+				{topLevelTagMatches.map((topLevelTagMatch, index) => {
 					switch (topLevelTagMatch.slice(0, 3)) {
 						case '<p>':
 							return (
-								<Text>
+								<Text key={index}>
 									<CmsRichText
 										content={topLevelTagMatch.replace(/<\/?p>/g, '')}
 										isMarkDown={false}
@@ -42,7 +42,7 @@ export const CmsRichText = ({
 							);
 						case '<ul':
 							return (
-								<List>
+								<List key={index}>
 									<CmsRichText
 										content={topLevelTagMatch.replace(/<\/?ul>/g, '')}
 										isMarkDown={false}
@@ -62,10 +62,12 @@ export const CmsRichText = ({
 	if (secondLevelMatches) {
 		return (
 			<>
-				{secondLevelMatches.map((secondLevelMatch) => {
+				{secondLevelMatches.map((secondLevelMatch, index) => {
 					switch (secondLevelMatch.slice(0, 3)) {
 						case '<li':
-							return <li>{secondLevelMatch.replace(/<\/?li>/g, '')}</li>;
+							return (
+								<li key={index}>{secondLevelMatch.replace(/<\/?li>/g, '')}</li>
+							);
 						default:
 							return secondLevelMatch;
 					}

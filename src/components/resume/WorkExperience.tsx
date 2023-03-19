@@ -60,8 +60,7 @@ export const WorkExperience = ({ workExperience }: WorkExperienceProps) => {
 				({ id, companyName, role, city, experience }, index) => {
 					return (
 						<CompanyListItem key={`company-${index}-${id}`}>
-							{getHeading(role, companyName, city, experience.length)}
-							{getExperienceList(experience)}
+							{getExperienceList(role, companyName, city, experience)}
 						</CompanyListItem>
 					);
 				}
@@ -70,17 +69,24 @@ export const WorkExperience = ({ workExperience }: WorkExperienceProps) => {
 	);
 };
 
-const getHeading = (
+const getExperienceList = (
 	role: string,
 	companyName: string,
 	city: string,
-	experienceCount: number
+	experienceList: Array<ComponentResumeWorkExperience>
 ) => {
-	if (experienceCount === 1) {
+	if (experienceList.length === 1) {
+		const { description } = experienceList[0];
+
 		return (
 			<>
-				<Heading size={'xs'} css={{ marginBottom: '$1' }}>{`${role}`}</Heading>
-				<Text margin={'none'}>{`${companyName}, ${city}`}</Text>
+				<Heading as={'h2'} size={'xs'} css={{ marginBottom: '$1' }}>
+					{role}
+				</Heading>
+
+				<Text margin={'bottomOnly'}>{`${companyName}, ${city}`}</Text>
+
+				{!!description && <CmsRichText content={description} />}
 			</>
 		);
 	}
@@ -88,39 +94,29 @@ const getHeading = (
 	return (
 		<>
 			<Heading
+				as={'h2'}
 				size={'xs'}
 				css={{ marginBottom: '$1' }}
 			>{`${companyName}`}</Heading>
+
 			<Text margin={'none'}>{`${city}`}</Text>
-		</>
-	);
-};
 
-const getExperienceList = (
-	experienceList: Array<ComponentResumeWorkExperience>
-) => {
-	if (experienceList.length === 1) {
-		const { description } = experienceList[0];
+			<List>
+				{experienceList.map((experience, index) => {
+					const { id, role, description } = experience;
 
-		if (!description) return;
-
-		return <CmsRichText content={description} />;
-	}
-
-	return (
-		<>
-			{experienceList.map((experience, index) => {
-				const { id, role, description } = experience;
-
-				if (!description) return;
-
-				return (
-					<List key={`experience-${index}-${id}`} type={'noBullets'}>
-						<Text>{role}</Text>
-						<CmsRichText content={description} />
-					</List>
-				);
-			})}
+					return (
+						<li key={`${index}-${id}`}>
+							<section>
+								<Heading as={'h3'} css={{ fontSize: '$5', lineHeight: '1' }}>
+									{role}
+								</Heading>
+								{!!description && <CmsRichText content={description} />}
+							</section>
+						</li>
+					);
+				})}
+			</List>
 		</>
 	);
 };
