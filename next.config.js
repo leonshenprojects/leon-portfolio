@@ -4,6 +4,15 @@ const path = require('path');
 const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
+	async redirects() {
+		return [
+			{
+				source: '/cms',
+				destination: 'https://leon-personal.herokuapp.com/admin',
+				permanent: true,
+			},
+		];
+	},
 };
 
 module.exports = nextConfig;
