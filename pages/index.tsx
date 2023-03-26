@@ -180,5 +180,8 @@ export const getStaticProps: GetStaticProps = async () => {
 		query: RESUME_QUERY,
 	});
 
-	return { props: { pageProps: { data: data.resume.data.attributes } } };
+	return {
+		props: { pageProps: { data: data.resume.data.attributes } },
+		revalidate: 60,
+	};
 };
