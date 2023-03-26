@@ -21,60 +21,57 @@ export const CmsRichText = ({
 		return html.replace(/\n/g, '');
 	}, [content, isMarkDown]);
 
-	const topLevelTagsRegex = /<(p|ul)>(.*?)<\/\1>/g;
-	const secondLevelTagsRegex = /<(li)>(.*?)<\/\1>/g;
+	const htmlTagRegex = /<(p|ul|li|em)>(.*?)<\/\1>/g;
+	const htmlTagMatches = sanitizedHtml.match(htmlTagRegex);
 
-	const topLevelTagMatches = sanitizedHtml.match(topLevelTagsRegex);
-
-	if (topLevelTagMatches) {
-		return (
-			<>
-				{topLevelTagMatches.map((topLevelTagMatch, index) => {
-					switch (topLevelTagMatch.slice(0, 3)) {
-						case '<p>':
-							return (
-								<Text key={index}>
-									<CmsRichText
-										content={topLevelTagMatch.replace(/<\/?p>/g, '')}
-										isMarkDown={false}
-									/>
-								</Text>
-							);
-						case '<ul':
-							return (
-								<List key={index}>
-									<CmsRichText
-										content={topLevelTagMatch.replace(/<\/?ul>/g, '')}
-										isMarkDown={false}
-									/>
-								</List>
-							);
-						default:
-							return topLevelTagMatch;
-					}
-				})}
-			</>
-		);
+	if (!htmlTagMatches) {
+		return <>{sanitizedHtml}</>;
 	}
 
-	const secondLevelMatches = sanitizedHtml.match(secondLevelTagsRegex);
-
-	if (secondLevelMatches) {
-		return (
-			<>
-				{secondLevelMatches.map((secondLevelMatch, index) => {
-					switch (secondLevelMatch.slice(0, 3)) {
-						case '<li':
-							return (
-								<li key={index}>{secondLevelMatch.replace(/<\/?li>/g, '')}</li>
-							);
-						default:
-							return secondLevelMatch;
-					}
-				})}
-			</>
-		);
-	}
-
-	return <>{sanitizedHtml}</>;
+	return (
+		<>
+			{htmlTagMatches.map((htmlTagMatch, index) => {
+				switch (htmlTagMatch.slice(0, 3)) {
+					case '<p>':
+						return (
+							<Text key={index}>
+								<CmsRichText
+									content={htmlTagMatch.replace(/<\/?p>/g, '')}
+									isMarkDown={false}
+								/>
+							</Text>
+						);
+					case '<ul':
+						return (
+							<List key={index}>
+								<CmsRichText
+									content={htmlTagMatch.replace(/<\/?ul>/g, '')}
+									isMarkDown={false}
+								/>
+							</List>
+						);
+					case '<li':
+						return (
+							<li key={index}>
+								<CmsRichText
+									content={htmlTagMatch.replace(/<\/?li>/g, '')}
+									isMarkDown={false}
+								/>
+							</li>
+						);
+					case '<em':
+						return (
+							<em key={index}>
+								<CmsRichText
+									content={htmlTagMatch.replace(/<\/?em>/g, '')}
+									isMarkDown={false}
+								/>
+							</em>
+						);
+					default:
+						return htmlTagMatch;
+				}
+			})}
+		</>
+	);
 };
