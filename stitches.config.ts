@@ -161,6 +161,7 @@ export const globalStyles = globalCss({
 		'-webkit-font-smoothing': 'antialiased',
 		textRendering: 'optimizeLegibility',
 		fontSize: '62.5%',
+		backgroundColor: '$background',
 	},
 	body: {
 		margin: 0,
