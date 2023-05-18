@@ -19,12 +19,12 @@ import { Resume } from '../types/cmsTypes';
 import { Separator } from '../src/components/Separator/Separator';
 import { Text } from '../src/components/base/Text.styled';
 import { Grid } from '../src/components/base/Grid.styled';
-import { Link } from '../src/components/base/Link.styled';
 import { SkillsList } from '../src/components/resume/SkillsList';
 import { InterestsList } from '../src/components/resume/InterestsList';
 import { WorkExperience } from '../src/components/resume/WorkExperience';
 import { CmsRichText } from '../src/components/CmsRichText/CmsRichText';
 import { Education } from '../src/components/resume/Education';
+import { ContactDetails } from '../src/components/resume/ContactDetails';
 
 export interface ResumePageProps {
 	data: Resume;
@@ -74,55 +74,33 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 								<Text>{profession}</Text>
 							</Grid>
 
-							<Grid css={{ marginTop: '$4' }}>
+							<Grid
+								css={{
+									display: 'none',
+									marginTop: '$4',
+									'@bp3': { display: 'block' },
+								}}
+							>
 								<Heading size={'sm'} css={{ marginBottom: '$2' }}>
 									Details
 								</Heading>
-								<Text margin={'none'} size={'sm'}>
-									{address.addressLine1}
-								</Text>
-								{address.addressLine2 && (
-									<Text margin={'none'} size={'sm'}>
-										{address.addressLine2}
-									</Text>
-								)}
-								<Text
-									margin={'none'}
-									size={'sm'}
-									css={{ marginBottom: '$1' }}
-								>{`${address.postCode} ${address.city}`}</Text>
 
-								<Text
-									margin={'none'}
-									style={'emphasis'}
-									size={'sm'}
-									css={{ marginBottom: '$1' }}
-								>
-									<Link
-										href={`tel:+${mobile.countryCode}${mobile.areaCode}${mobile.number}`}
-									>{`(${mobile.countryCode}) ${mobile.areaCode} ${mobile.number}`}</Link>
-								</Text>
-
-								<Text
-									margin={'none'}
-									style={'emphasis'}
-									size={'sm'}
-									css={{ marginBottom: '$1' }}
-								>
-									<Link href={`mailto:${email}`} target="_blank">
-										{email}
-									</Link>
-								</Text>
-
-								<Text margin={'none'} style={'emphasis'} size={'sm'}>
-									<Link href={linkedInUrl} target="_blank">
-										{linkedInUrl}
-									</Link>
-								</Text>
+								<ContactDetails
+									address={address}
+									email={email}
+									linkedInUrl={linkedInUrl}
+									mobile={mobile}
+								/>
 							</Grid>
 
 							{Skills && (
-								<Grid css={{ marginTop: '$8' }}>
+								<Grid
+									css={{
+										display: 'none',
+										marginTop: '$8',
+										'@bp3': { display: 'block' },
+									}}
+								>
 									<Heading size={'sm'} css={{ marginBottom: '$2' }}>
 										Tech Stack
 									</Heading>
@@ -132,7 +110,13 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 							)}
 
 							{interests && (
-								<Grid css={{ marginTop: '$8' }}>
+								<Grid
+									css={{
+										display: 'none',
+										marginTop: '$8',
+										'@bp3': { display: 'block' },
+									}}
+								>
 									<Heading size={'sm'} css={{ marginBottom: '$2' }}>
 										Interests
 									</Heading>
@@ -143,7 +127,7 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 						</ResumeInfo>
 
 						<ResumeMain>
-							<Row width={'full'} css={{ marginBottom: '$6' }}>
+							<Row width={'full'} css={{ marginBottom: '$8' }}>
 								<Heading size={'md'} margin={'bottomOnly'}>
 									Summary
 								</Heading>
@@ -151,16 +135,58 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 								<CmsRichText content={Summary} />
 							</Row>
 
-							<Row width={'full'} css={{ marginBottom: '$6' }}>
+							<Row width={'full'} css={{ marginBottom: '$8' }}>
 								<Heading size={'md'}>Work experience</Heading>
 
 								<WorkExperience workExperience={workExperience} />
 							</Row>
 
-							<Row width={'full'} css={{ marginBottom: '$6' }}>
+							<Row width={'full'} css={{ marginBottom: '$8' }}>
 								<Heading size={'md'}>Education</Heading>
 
 								<Education education={education} />
+							</Row>
+
+							{Skills && (
+								<Row
+									width={'full'}
+									css={{ marginBottom: '$8', '@bp3': { display: 'none' } }}
+								>
+									<Heading size={'md'} css={{ marginBottom: '$2' }}>
+										Tech Stack
+									</Heading>
+
+									<SkillsList skills={Skills} />
+								</Row>
+							)}
+
+							{interests && (
+								<Row
+									width={'full'}
+									css={{ marginBottom: '$8', '@bp3': { display: 'none' } }}
+								>
+									<Heading size={'md'} css={{ marginBottom: '$2' }}>
+										Interests
+									</Heading>
+
+									<InterestsList interests={interests} />
+								</Row>
+							)}
+
+							<Row
+								width={'full'}
+								css={{ marginBottom: '$8', '@bp3': { display: 'none' } }}
+							>
+								<Heading size={'md'} css={{ marginBottom: '$2' }}>
+									Contact details
+								</Heading>
+
+								<ContactDetails
+									address={address}
+									email={email}
+									linkedInUrl={linkedInUrl}
+									mobile={mobile}
+								/>
 							</Row>
 						</ResumeMain>
 					</ResumeContainer>
