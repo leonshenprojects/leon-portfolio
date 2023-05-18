@@ -1,5 +1,6 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 import { getCssText, globalStyles } from '../stitches.config';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function MyDocument() {
 	globalStyles();
@@ -18,6 +19,7 @@ export default function MyDocument() {
 			<body>
 				<Main />
 				<NextScript />
+				<Analytics />
 			</body>
 		</Html>
 	);

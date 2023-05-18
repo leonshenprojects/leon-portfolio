@@ -19,6 +19,7 @@
 		"@radix-ui/react-separator": "^1.0.1",
 		"@radix-ui/react-switch": "^1.0.1",
 		"@stitches/react": "^1.2.8",
+		"@vercel/analytics": "^1.0.1",
 		"graphql": "^16.6.0",
 		"next": "^13.1.1",
 		"react": "^18.2.0",
