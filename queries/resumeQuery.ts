@@ -51,7 +51,7 @@ export const RESUME_QUERY = gql`
 						endDate
 						description
 					}
-					Skills {
+					Skills(pagination: { limit: 20 }) {
 						id
 						name
 						category
