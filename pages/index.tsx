@@ -54,7 +54,7 @@ export default function Home({ pageProps }: AppProps<ResumePageProps>) {
 					<TopBar />
 				</Row>
 				<Head>
-					<title>Resume</title>
+					<title>Leon Shen</title>
 				</Head>
 
 				<Row css={{ marginBottom: '$6' }}>
