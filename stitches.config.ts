@@ -15,6 +15,10 @@ import {
 } from '@radix-ui/colors';
 import type * as Stitches from '@stitches/react';
 export type { VariantProps } from '@stitches/react';
+import { Montserrat, Open_Sans } from 'next/font/google';
+
+const montserrat = Montserrat({ weight: ['500', '700'], subsets: ['latin'] });
+const openSans = Open_Sans({ weight: ['400', '600'], subsets: ['latin'] });
 
 export const {
 	styled,
@@ -52,8 +56,8 @@ export const {
 			...blackA,
 		},
 		fonts: {
-			heading: 'Montserrat, sans-serif',
-			body: 'Open Sans, sans-serif',
+			heading: montserrat.style.fontFamily,
+			body: openSans.style.fontFamily,
 		},
 		space: {
 			1: '0.5rem',

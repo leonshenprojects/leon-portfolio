@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { theme as defaultTheme, darkTheme } from '../../../stitches.config';
 
