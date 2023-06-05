@@ -1,5 +1,3 @@
-'use client';
-
 import { Flex } from '../base/Flex.styled';
 import { Label, SwitchRoot, SwitchThumb } from './Switch.styled';
 import { useState, useId, useEffect } from 'react';

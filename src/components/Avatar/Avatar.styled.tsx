@@ -1,5 +1,3 @@
-'use client';
-
 import * as Avatar from '@radix-ui/react-avatar';
 import { styled } from '../../../stitches.config';
 
