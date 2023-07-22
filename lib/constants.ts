@@ -1,1 +1,1 @@
-export const cmsBaseUrl = 'https://leon-personal.herokuapp.com';
+export const cmsBaseUrl = 'https://strapi-z56v.onrender.com';
