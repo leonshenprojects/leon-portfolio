@@ -8,7 +8,7 @@ const nextConfig = {
 		return [
 			{
 				source: '/cms',
-				destination: 'https://leon-personal.herokuapp.com/admin',
+				destination: 'https://strapi-7h7c.onrender.com/admin',
 				permanent: true,
 			},
 		];
