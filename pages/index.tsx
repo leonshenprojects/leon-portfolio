@@ -13,7 +13,6 @@ import { GetStaticProps } from 'next';
 import { AppProps } from 'next/app';
 import { cmsBaseUrl } from '../lib/constants';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
-import { RESUME_QUERY } from '../queries/resumeQuery';
 import { Avatar } from '../src/components/Avatar/Avatar';
 import { Resume } from '../types/cmsTypes';
 import { Separator } from '../src/components/Separator/Separator';
@@ -25,6 +24,7 @@ import { WorkExperience } from '../src/components/resume/WorkExperience';
 import { CmsRichText } from '../src/components/CmsRichText/CmsRichText';
 import { Education } from '../src/components/resume/Education';
 import { ContactDetails } from '../src/components/resume/ContactDetails';
+import { data } from './data';
 
 export interface ResumePageProps {
 	data: Resume;
@@ -200,10 +200,6 @@ export const getStaticProps: GetStaticProps = async () => {
 	const client = new ApolloClient({
 		uri: `${cmsBaseUrl}/graphql`,
 		cache: new InMemoryCache(),
-	});
-
-	const { data } = await client.query({
-		query: RESUME_QUERY,
 	});
 
 	return {
