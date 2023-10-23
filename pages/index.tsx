@@ -24,7 +24,7 @@ import { WorkExperience } from '../src/components/resume/WorkExperience';
 import { CmsRichText } from '../src/components/CmsRichText/CmsRichText';
 import { Education } from '../src/components/resume/Education';
 import { ContactDetails } from '../src/components/resume/ContactDetails';
-import { data } from './data';
+import { data } from '../lib/data';
 
 export interface ResumePageProps {
 	data: Resume;
